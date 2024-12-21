@@ -9,5 +9,8 @@ def add(numbers)
     numbers = numbers.gsub("\n", ",")
   end
   numbers = numbers.split(delimiter).map(&:to_i)
+  negative_numbers = numbers.select { |number| number < 0 }
+  raise "negative numbers not allowed #{negative_numbers.join(', ')}" if negative_numbers.size.positive?
+
   numbers.sum
 end
