@@ -6,4 +6,10 @@ RSpec.describe "#add" do
       expect(add('')).to eq(0)
     end
   end
+
+  context "with single number" do
+    it 'returns the same number provided in argument' do
+      expect(add('45')).to eq(45)
+    end
+  end
 end
