@@ -1,5 +1,7 @@
 def add(numbers)
   return 0 if numbers == ''
 
-  return numbers.to_i
+  numbers = numbers.split(',').map(&:to_i)
+
+  numbers.sum
 end
