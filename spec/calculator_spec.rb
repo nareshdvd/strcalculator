@@ -42,4 +42,12 @@ RSpec.describe "#add" do
       expect { add("//;\n30;-40;50;-60") }.to raise_error("negative numbers not allowed -40, -60")
     end
   end
+
+  context "with hyphen as delimiter in input" do
+    context "with only positive numbers" do
+      it 'returns sum of the numbers provided' do
+        expect(add("//-\n30-40-50-60")).to eq(180)
+      end
+    end
+  end
 end
