@@ -19,9 +19,15 @@ RSpec.describe "#add" do
     end
   end
 
-  context "the method should work with new line character as delimiter" do
+  context "with new line character as delimiter" do
     it 'retuns sum of the numbers provided' do
       expect(add("30\n40")).to eq(70)
+    end
+  end
+
+  context "with new line character and comma both as delimiter" do
+    it 'retuns sum of the numbers provided' do
+      expect(add("30\n40,50")).to eq(120)
     end
   end
 end
