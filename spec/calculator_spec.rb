@@ -50,7 +50,6 @@ RSpec.describe "#add" do
       end
     end
 
-
     context "with negative numbers in input" do
       it 'raises exception' do
         expect { add("//-\n30--40-50--60") }.to raise_error("negative numbers not allowed -40, -60")

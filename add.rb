@@ -8,7 +8,17 @@ def add(numbers)
   else
     numbers = numbers.gsub("\n", ",")
   end
-  numbers = numbers.split(delimiter).map(&:to_i)
+
+  if delimiter == '-'
+    numbers = numbers.split(delimiter)
+    numbers.each_with_index do |number, inx|
+      numbers[inx+1] = "-#{numbers[inx+1]}" if number == ''
+    end.reject { |number| number == '' }
+    numbers = numbers.map(&:to_i)
+  else
+    numbers = numbers.split(delimiter).map(&:to_i)
+  end
+
   negative_numbers = numbers.select { |number| number < 0 }
   raise "negative numbers not allowed #{negative_numbers.join(', ')}" if negative_numbers.size.positive?
 
