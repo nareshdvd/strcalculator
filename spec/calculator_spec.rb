@@ -30,4 +30,10 @@ RSpec.describe "#add" do
       expect(add("30\n40,50")).to eq(120)
     end
   end
+
+  context "with different delimiter other than comma or newline" do
+    it 'retuns sum of the numbers provided' do
+      expect(add("//;\n30;40;50")).to eq(120)
+    end
+  end
 end
