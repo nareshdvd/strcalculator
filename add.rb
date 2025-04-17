@@ -5,8 +5,9 @@ def add(numbers)
   if numbers.start_with?('//')
     delimiter = numbers[2]
     numbers = numbers[3..-1]
+    numbers = numbers.gsub('\\n', "")
   else
-    numbers = numbers.gsub("\n", ",")
+    numbers = numbers.gsub('\\n', ",")
   end
 
   if delimiter == '-'
